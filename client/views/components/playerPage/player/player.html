@@ -1,0 +1,52 @@
+<template name="player">
+  {{#if mainPlayer}}
+    {{> hostPlayer}}
+  {{else}}
+    {{> clientPlayer}}
+  {{/if}}
+</template>
+
+<template name="hostPlayer">
+  {{#with playingSong}}
+    {{loadStreaming}}
+    <ul class="player {{playerDisabled}}">
+        <li class="playpause">
+          <i class="fa fa-{{playPauseIcon}} fa-fw fa-lg"></i>
+        </li>
+        <li class="seek-bar">
+          <span class="progress-bar">
+            <p class="song-title">{{title}}</p>
+          </span>
+        </li>
+        <li class="ff-button">
+          <i class="fa fa-fw fa-step-forward fa-lg"></i>
+        </li>
+        <li class="vendor-icon">
+          <a href="{{permalink_url}}" target="_blank">
+            <i class="fa fa-soundcloud fa-fw fa-lg"></i>
+          </a>
+        </li>
+    </ul>
+    {{/with}}
+</template>
+
+<template name="clientPlayer">
+  {{#with playingSong}}
+    <ul class="player client-player {{playerDisabled}}">
+        <li class="playpause">
+          <i class="fa fa-{{playPauseIcon}} fa-fw fa-lg"></i>
+        </li>
+        <li class="seek-bar">
+          {{updateSeekBar}}
+          <span class="progress-bar">
+            <p class="song-title">{{title}}</p>
+          </span>
+        </li>
+        <li class="vendor-icon">
+          <a href="{{permalink_url}}" target="_blank">
+            <i class="fa fa-soundcloud fa-fw fa-lg"></i>
+          </a>
+        </li>
+    </ul>
+    {{/with}}
+</template>

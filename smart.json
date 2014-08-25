@@ -1,0 +1,16 @@
+{
+  "packages": {
+    "streams": {},
+    "user-status": {},
+    "highlight": {},
+    "jquery-ui": {},
+    "iron-router": {},
+    "iron-router-progress": {},
+    "fast-render": {},
+    "crypto-base64": {},
+    "exports": {},
+    "npm": {},
+    "moment": {},
+    "accounts-merge": {}
+  }
+}

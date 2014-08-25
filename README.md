@@ -1,4 +1,7 @@
-jmb
+JMB
 ===
 
-jmb
+``` sh
+$ npm install -g meteorite
+$ mrt
+```

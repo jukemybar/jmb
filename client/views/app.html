@@ -1,0 +1,24 @@
+<template name="app">
+  {{#if currentUser}}
+    {{#if playerIsSetup}}
+      {{> playerPage}}
+    {{else}}
+      {{> playerSetup}}
+    {{/if}}
+  {{else}}
+    {{> login}}
+  {{/if}}
+</template>
+
+
+<template name="bar">
+  {{#if currentUser}}
+    {{#if playerIsSetup}}
+      {{> playerPage}}
+    {{else}}
+      {{> playerSetup}}
+    {{/if}}
+  {{else}}
+    {{> login}}
+  {{/if}}
+</template>

@@ -1,0 +1,55 @@
+$search-color: $deep-orange;
+$search-results-message-color: $medium-gray;
+.search {
+    display: none;
+}
+.search-results {
+    tr {
+        @include span-columns(12);
+        @include row(table);
+    }
+    td.song-title {
+        @include span-columns(10);
+        @include pad;
+    }
+    td.add-to-playlist {
+        @include span-columns(2);
+        @include pad;
+        @include reset-display;
+        text-align: center;
+        color: $search-color;
+        &:hover {
+            cursor: pointer;
+            background-color: $search-color;
+            color: $base-background-color;
+        }
+    }
+    .highlight {
+        font-weight: bold;
+        color: $search-color;
+        background-color: inherit;
+    }
+}
+.results-message {
+    display: none;
+    text-align: center;
+    color: $search-results-message-color;
+}
+.no-results {
+    display: none;
+    text-align: center;
+    color: $search-results-message-color;
+}
+.query {
+    color: $search-color;
+    font-weight: bold;
+}
+.in-playlist {
+    display: none;
+}
+.added {
+    display: none;
+    @include flash($search-color);
+    color: $base-background-color;
+    text-align: center;
+}
