@@ -7,27 +7,22 @@ Meteor.startup(function() {
     }
 
     ServiceConfiguration.configurations.remove({
-        $or: [{
-            service: "facebook"
-        }, {
-            service: "twitter"
-        }, {
-            service: "google"
-        }]
+        $or: [{service: "facebook"}, {service: "twitter"}, {service: "google"}]
     });
 
-    var url = window.location;
-    if (url.match(/^(http:)\/\/(.+\.)?(localhost)\./)) {
+    if (Meteor.settings.public) {
+        console.log("Deploy on public visibility");
+        ServiceConfiguration.configurations.insert({
+            service: "google",
+            clientId: "210125678365-2mvnbne2vku48el47i1a808b34vk3ttm.apps.googleusercontent.com",
+            secret: "fudhxhZGnavEM8lszQkbV-h8"
+        });
+    } else {
+        console.log("Deploy on private/localhost");
         ServiceConfiguration.configurations.insert({
             service: "google",
             clientId: "683764162464-17kafe2t7q6ofpama9lrdv9q63u78cp6.apps.googleusercontent.com",
             secret: "k2yy6BJorow_eD09RQr8Wb7_"
-        });
-    } else {
-        ServiceConfiguration.configurations.insert({
-            service: "google",
-            clientId: "80599452496-2qof1vreif0kfki7ugcbb74d918smko8.apps.googleusercontent.com",
-            secret: "YUqQ_fvAjBd3oDbLxrazWgXp"
         });
     }
     // Add Google configuration entry

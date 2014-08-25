@@ -3,5 +3,5 @@ JMB
 
 ``` sh
 $ npm install -g meteorite
-$ mrt
+$ mrt --settings local.json
 ```
