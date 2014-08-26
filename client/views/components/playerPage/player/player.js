@@ -13,7 +13,7 @@ var updateSeekBarDisplay = function(percentage) {
 
 var soundManagerOptions = {
   autoLoad: true,
-  autoPlay: true,
+  autoPlay: false,
   stream: true,
   useHTML5Audio: true,
   preferFlash: false,

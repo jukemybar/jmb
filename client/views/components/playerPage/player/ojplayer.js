@@ -69,7 +69,7 @@ OJPlayer = {
   loaded: function(isLoaded) {
     var current = CurrentSong.findOne();
     current && CurrentSong.update(current._id, {
-      $set: {loaded: isLoaded}
+      $set: {loaded: isLoaded, paused: false}
     });
   },
   getStartingPosition: function() {
