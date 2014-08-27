@@ -1,0 +1,28 @@
+<template name="search">
+  <div class="search">
+    <form>
+      <input type="search" placeholder="Search for a song" />
+    </form>
+    <p class="results-message">Search results for "<span class="query"></span>".</p>
+    <p class="no-results">No results for <span class="query"></span>.</p>
+    <p class="added">Added to playlist.</p>
+    <table class="search-results">
+      <thead></thead>
+      <tbody>
+        {{#each searchResults}}
+          {{> searchResult}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="searchResult">
+  <tr class="{{inPlaylist}}">
+    <td class="song-title">{{title}}</td>
+    <td class="add-to-playlist" title="Add song to playlist">
+      <i class="fa fa-fw fa-lg fa-plus-square"></i>
+    </td>
+  </tr>
+</template>
+

@@ -1,0 +1,13 @@
+<template name="premium">
+	<div class="premium">
+	  <div id="profile">
+	  	<img style="max-width:100px" src="{{user.profile.image}}"/>
+	  	<div class="premium">
+		    <button id="logout">Logout</button>
+		  </div>
+	  </div>
+	  {{> paypalCreditCardForm }}
+
+	</div>
+</template>
+

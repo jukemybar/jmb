@@ -1,0 +1,32 @@
+<template name="playerSetup">
+  <div class="player-setup">
+
+  {{barId}}
+    <h1>Use your speakers?</h1>
+    <p>The speakers from a single device are needed to play sound.</p>
+    <p>Would you like to use the speakers connected to this device?</p>
+    <form>
+      <button type="submit">Yep</button>
+      <button id="logout">Logout</button>
+
+    </form>
+  </div>
+  <!-- <div>
+  	{{#if loggingIn}}
+       Logging In
+  	{{else}}
+  	   {{currentUser.profile.name}}
+  	{{/if}}
+  	{{#each searchSong}}
+        <tr>
+          <td data-id="{{id}}" class="play">{{title}}</td>
+          <td>{{artist}}</td>
+          <td>{{album}}</td>
+          <td>{{playCount}}</td>
+
+        </tr>
+      {{/each}}
+  	<audio autoplay src="{{playSong}}"></audio>
+  </div> -->
+
+</template>

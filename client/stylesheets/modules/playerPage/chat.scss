@@ -1,0 +1,13 @@
+.chat {
+    display: none;
+}
+
+.message {
+    .chat-username {
+        font-weight: bold;
+        color: $cyan;
+    }
+    .chat-time {
+        color: $medium-gray;
+    }
+}
