@@ -49,6 +49,16 @@ Template.playlist.helpers({
   }
 });
 
+Template.playlist.swipeme = function () {
+  Meteor.defer(function() {
+    var $sw = $('.swipeme');
+    $sw.on('hold tap swipe doubletap transformstart transform transformend dragstart drag dragend swipe release', function (event) {
+      event.preventDefault();
+      console.log("Type: " + event.type + ", Fingers: " + event.touches.length + ", Direction: " + event.direction + "<br/>");
+    });
+  });
+};
+
 Template.playlist.events({
   "click .upvote, touchstart .upvote": function(event) {
     event.preventDefault();
@@ -90,5 +100,8 @@ Template.playlist.events({
       return;
     }
     Playlist.remove(this._id);
+  },
+  "swipeleft .swipeme": function(event) {
+    console.log("swiped");
   }
 });

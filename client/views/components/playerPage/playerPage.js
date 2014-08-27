@@ -10,6 +10,7 @@ Template.topBar.events({
     }
     $(".chat").hide();
     $(".search").hide();
+    $(".premium").hide();
     $(".playlist").show();
     Session.set("selectedTab", "playlist");
     Session.set("missedPlaylist", 0);
@@ -25,6 +26,7 @@ Template.topBar.events({
     }
     $(".playlist").hide();
     $(".search").hide();
+    $(".premium").hide();
     $(".chat").show();
     Session.set("selectedTab", "chat");
     Session.set("missedChats", 0);
@@ -40,8 +42,24 @@ Template.topBar.events({
     }
     $(".chat").hide();
     $(".playlist").hide();
+    $(".premium").hide();
     $(".search").show();
     Session.set("selectedTab", "search");
+  },
+  "click .tab-premium, touchstart .tab-premium": function(event) {
+    var tab = $(".tab-premium");
+    // if not selected
+    if (!tab.hasClass("selected")) {
+      // unselect the rest
+      $(".tab.selected").removeClass("selected");
+      // select it
+      tab.addClass("selected");
+    }
+    $(".chat").hide();
+    $(".playlist").hide();
+    $(".search").hide();
+    $(".premium").show();
+    Session.set("selectedTab", "premium");
   },
 });
 

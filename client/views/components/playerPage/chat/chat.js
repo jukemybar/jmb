@@ -7,7 +7,7 @@ ChatCollection = new Meteor.Collection(null);
 var addChatMessage = function(message, username, pic) {
   ChatCollection.insert({
     pic: pic,
-    username: username,
+    name: username,
     message: message,
     time: new Date()
   });
@@ -23,7 +23,7 @@ Template.chat.helpers({
   message: function() {
     return ChatCollection.find({}, {
       limit: maxChats,
-      sort: [["time", "desc"], ["username", "asc"]]
+      sort: [["time", "desc"], ["name", "asc"]]
     });
   },
 });
@@ -42,8 +42,8 @@ Template.chat.events({
     var message = $(".chat form input");
     // don't do anything if the message is empty
     if (message.val()) {
-      addChatMessage(message.val(), user.username, Meteor.user().profile.services.google.picture);
-      Chat.emit("chat", message.val(), user.username, Meteor.user().profile.services.google.picture);
+      addChatMessage(message.val(), user.name, user.profile.image);
+      Chat.emit("chat", message.val(), user.name, user.profile.image);
       message.val("");
     }
   }

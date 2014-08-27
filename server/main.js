@@ -7,7 +7,13 @@ Meteor.startup(function() {
     }
 
     ServiceConfiguration.configurations.remove({
-        $or: [{service: "facebook"}, {service: "twitter"}, {service: "google"}]
+        $or: [{
+            service: "facebook"
+        }, {
+            service: "twitter"
+        }, {
+            service: "google"
+        }]
     });
 
     if (Meteor.settings.public) {
@@ -25,6 +31,7 @@ Meteor.startup(function() {
             secret: "k2yy6BJorow_eD09RQr8Wb7_"
         });
     }
+
     // Add Google configuration entry
     //jmb.meteor.com
     // ServiceConfiguration.configurations.insert({

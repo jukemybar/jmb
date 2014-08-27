@@ -59,24 +59,15 @@ Template.playerSetup.helpers({
   }
 });
 
-Template.playerSetup.events({
-  "click .play, touchstart .play": function(event) {
-    event.preventDefault();
-    var currentTarget = $(event.currentTarget);
-    var songId = currentTarget.context.dataset.id;
-    Meteor.call('playSong', songId, function(err, result){
-      console.log(result);
-      console.log(err);
-      Session.set("playSong", result);
-    });
-    // if (currentTarget.hasClass("vote-disabled")) {
-    //   return;
-    // }
-
-    // Playlist.update(this._id, {
-    //   $push: {userIdsWhoVotedUp: Meteor.userId()},
-    //   $inc: {upvotes: 1, voteTotal: 1}
-    // });
-    // $(event.currentTarget).addClass("vote-disabled");
-  }
-});
+// Template.playerSetup.events({
+//   "click .play, touchstart .play": function(event) {
+//     event.preventDefault();
+//     var currentTarget = $(event.currentTarget);
+//     var songId = currentTarget.context.dataset.id;
+//     Meteor.call('playSong', songId, function(err, result){
+//       console.log(result);
+//       console.log(err);
+//       Session.set("playSong", result);
+//     });
+//   }
+// });

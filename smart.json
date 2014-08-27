@@ -11,6 +11,7 @@
     "exports": {},
     "npm": {},
     "moment": {},
-    "accounts-merge": {}
+    "accounts-merge": {},
+    "paypal": {}
   }
 }

@@ -4,6 +4,7 @@
     {{> chat}}
     {{> playlist}}
     {{> search}}
+    {{> premium}}
   </div>
     {{> bottomBar}}
 </template>
@@ -12,9 +13,10 @@
   <header class="top-bar">
     <nav class="tabs">
       <ul>
-        <li class="tab tab-search">Search</li>
-        <li class="tab selected tab-playlist">Playlist<span class="missed-playlist">{{missedPlaylist}}</span></li>
-        <li class="tab tab-chat">Chat<span class="missed-chats">{{missedChats}}</span></li>
+        <li class="tab tab-search"><i class="fa fa-search fa-2x"></i></li>
+        <li class="tab selected tab-playlist"><i class="fa fa-music fa-2x"></i><span class="missed-playlist">{{missedPlaylist}}</span></li>
+        <li class="tab tab-chat"><i class="fa fa-comments-o fa-2x"></i><span class="missed-chats">{{missedChats}}</span></li>
+        <li class="tab tab-premium"><i class="fa fa-user fa-2x"></i></li>
       </ul>
     </nav>
   </header>

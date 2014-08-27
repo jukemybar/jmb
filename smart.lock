@@ -13,7 +13,8 @@
       "exports": {},
       "npm": {},
       "moment": {},
-      "accounts-merge": {}
+      "accounts-merge": {},
+      "paypal": {}
     },
     "packages": {
       "streams": {
@@ -75,6 +76,11 @@
         "git": "https://github.com/lirbank/meteor-accounts-merge.git",
         "tag": "v0.0.7",
         "commit": "ae5c08bb1574858257291fa11982733e6e1937f0"
+      },
+      "paypal": {
+        "git": "https://github.com/DavidBrear/meteor-paypal.git",
+        "tag": "v1.1.1",
+        "commit": "eeff60449511f6caa0d0aaf433ea8a06b426858e"
       },
       "timesync": {
         "git": "https://github.com/mizzao/meteor-timesync.git",

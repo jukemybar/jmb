@@ -2197,14 +2197,14 @@ input[type="submit"] {
   .top-bar li.tab {
     float: left;
     display: block;
-    width: 34.11922%;
+    width: 25%;
     padding: 2.35765%;
     color: #bdbdbd;
     text-transform: uppercase;
     text-align: center;
     font-weight: bold; }
     .top-bar li.tab:last-child {
-      width: 31.76157%; }
+      width: 25%; }
     .top-bar li.tab:hover {
       cursor: pointer; }
     .top-bar li.tab.selected {
@@ -2212,15 +2212,23 @@ input[type="submit"] {
   .top-bar .tab-search {
     background-color: #d43300; }
     .top-bar .tab-search:hover, .top-bar .tab-search.selected {
+      color:white;
       background-color: #ff5722; }
   .top-bar .tab-playlist {
     background-color: #464646; }
     .top-bar .tab-playlist:hover, .top-bar .tab-playlist.selected {
+      color:white;
       background-color: #464647; }
   .top-bar .tab-chat {
     background-color: #007888; }
     .top-bar .tab-chat:hover, .top-bar .tab-chat.selected {
+      color:white;
       background-color: #00bcd4; }
+  .top-bar .tab-premium {
+    background-color: #115588; }
+    .top-bar .tab-premium:hover, .top-bar .tab-premium.selected {
+      color:white;
+      background-color: #0055d4; }
 
 .bottom-bar {
   position: fixed;
@@ -2466,3 +2474,17 @@ input[type="submit"] {
     color: #ff5722;
     font-weight: bold;
     text-transform: uppercase; }
+
+
+.premium {
+  display: none; }
+
+#profile {
+  float: left;
+  padding: 20px;
+}
+
+#paypal-payment-form {
+  float: left;
+  width: 50%;
+}

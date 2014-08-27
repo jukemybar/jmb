@@ -24,9 +24,10 @@ Meteor.startup(function() {
     }
 });
 
+
 Accounts.ui.config({
     requestPermissions: {
-        google: ['https://www.googleapis.com/auth/musicmanager', 'https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/plus.login'],
+        google: ['https://www.googleapis.com/auth/paymentssandbox.make_payments', 'https://www.googleapis.com/auth/musicmanager', 'https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/plus.login'],
         facebook: ['email', 'read_friendlists', 'read_stream', 'user_photos', 'user_relationships', 'user_status']
     },
     requestOfflineToken: {
