@@ -9,7 +9,8 @@
       {{/if}}
       {{#with currentSong}}
         <tr class="current-song">
-          <td>
+          <td class="image"><img class="image circular" src="{{image}}"/></td>
+          <td class="container">
             <div class="now-playing">Now Playing</div>
             {{title}}
           </td>
@@ -17,7 +18,12 @@
       {{/with}}
       {{#each song}}
         <tr>
+          <td class="image"><img class="image circular" src="{{image}}"/></td>
           <td class="song">{{title}}</td>
+          <td class="money {{moneyDisabled}}" title="Money up">
+            <i class="fa fa-fw fa-lg {{monneyUpIcon}}"></i>
+            {{money}}
+          </td>
           <td class="upvote {{voteDisabled}}" title="{{tooltipUp}}">
             <i class="fa fa-fw fa-lg {{thumbUpIcon}}"></i>
             {{upvotes}}
@@ -29,7 +35,6 @@
           <td class="remove-song {{removeDisabled}}" title="{{tooltipRemove}}">
             <i class="fa fa-fw fa-lg {{removeSongIcon}}"></i>
           </td>
-          {{swipeme}}
         </tr>
       {{/each}}
     </tbody>

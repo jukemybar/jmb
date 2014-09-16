@@ -2,6 +2,8 @@ OJPlayer = {
   addSongToPlaylist: function(songDoc) {
     songDoc.addedByUsername = Meteor.user().username;
     songDoc.addedByUserId = Meteor.userId();
+    console.log(Meteor.user().profile.image);
+    songDoc.image = Meteor.user().profile.image;
     songDoc.addedAt = new Date();
     songDoc.upvotes = 0;
     songDoc.downvotes = 0;
@@ -16,6 +18,7 @@ OJPlayer = {
       songDoc.position = 0;
       songDoc.paused = true;
       songDoc.loaded = false;
+      songDoc.image = Meteor.user().profile.image;
       CurrentSong.insert(songDoc);
       return;
     }
@@ -53,7 +56,7 @@ OJPlayer = {
     return Playlist.findOne({}, {
       // sort by voteTotal, which is upvotes - downvotes,
       // breaking ties by time added
-      sort: [["voteTotal", "desc"], ["addedAt", "asc"]]
+      sort: [["money", "desc"],["voteTotal", "desc"], ["addedAt", "asc"]]
     });
   },
   pause: function(current) {

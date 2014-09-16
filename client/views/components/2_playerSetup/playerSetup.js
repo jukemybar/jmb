@@ -20,13 +20,22 @@ Template.playerSetup.events({
 
     // use the session id, and not the user id, so it's limited to 1 window
     Settings.update(Settings.findOne()._id, {
-      $set: {playerId: Meteor.connection._lastSessionId}
+      $set: {playerId: Meteor.userId()}
     });
+
+    Meteor.call('set_bar_id', Meteor.userId(), function (error, result) {});
+    Session.set("barId", Meteor.userId());
   },
 
   "click #logout, touchstart #logout": function(event) {
     event.preventDefault();
-    Meteor.logout();
+    // Meteor.logout();
+
+    Meteor.call('set_bar_id', null, function (error, result) {});
+    // Meteor.users.update(Meteor.userId(),{
+    //   $set: {isBar: false}
+    // });
+    Session.set("barId", null);
   }
 
 });

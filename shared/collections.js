@@ -2,11 +2,15 @@ Settings = new Meteor.Collection("settings");
 Playlist = new Meteor.Collection("playlist");
 CurrentSong = new Meteor.Collection("currentSong");
 
+// var isMainPlayer = function() {
+//   if (Settings.findOne().playerId || !Meteor.connection._lastSessionId) {
+//     return true;
+//   }
+//   return Settings.findOne().playerId === Meteor.connection._lastSessionId;
+// }
+
 var isMainPlayer = function() {
-  if (Settings.findOne().playerId || !Meteor.connection._lastSessionId) {
-    return true;
-  }
-  return Settings.findOne().playerId === Meteor.connection._lastSessionId;
+  return Meteor.userId() === Session.get("barId");
 }
 
 Settings.allow({
@@ -14,7 +18,7 @@ Settings.allow({
     return true;
   },
   'update': function(userId, doc, fieldNames, modifier) {
-    return true;
+    return doc.playerId === 0 || doc.playerId === userId;
   },
   'remove': function(userId, doc) {
     return false;
@@ -48,4 +52,11 @@ CurrentSong.allow({
   'remove': function(userId, doc) {
     return isMainPlayer();
   }
+});
+
+Meteor.users.allow({
+    update: function(userId, doc){
+      // console.log(doc);
+        return doc._id === userId; // can update their own profile
+    }
 });

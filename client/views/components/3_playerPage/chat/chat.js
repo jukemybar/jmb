@@ -42,8 +42,8 @@ Template.chat.events({
     var message = $(".chat form input");
     // don't do anything if the message is empty
     if (message.val()) {
-      addChatMessage(message.val(), user.name, user.profile.image);
-      Chat.emit("chat", message.val(), user.name, user.profile.image);
+      addChatMessage(message.val(), user.profile.name, user.profile.image);
+      Chat.emit("chat", message.val(), user.profile.name, user.profile.image);
       message.val("");
     }
   }

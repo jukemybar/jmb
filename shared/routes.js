@@ -7,7 +7,8 @@ Router.map(function() {
             return [
                 Meteor.subscribe("settings"),
                 Meteor.subscribe("currentSong"),
-                Meteor.subscribe("playlist")
+                Meteor.subscribe("playlist"),
+                Meteor.subscribe('userData')
             ];
         },
         onRun: function() {
@@ -21,7 +22,8 @@ Router.map(function() {
             return [
                 Meteor.subscribe("settings"),
                 Meteor.subscribe("currentSong"),
-                Meteor.subscribe("playlist")
+                Meteor.subscribe("playlist"),
+                Meteor.subscribe('userData')
             ];
         },
         onRun: function() {
