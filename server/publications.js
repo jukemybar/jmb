@@ -1,11 +1,16 @@
 Meteor.publish("settings", function() {
-  return Settings.find({}, {limit: 2});
+  return Settings.find({}, {limit: 1});
 });
 Meteor.publish("playlist", function() {
   return Playlist.find();
 });
 Meteor.publish("currentSong", function() {
   return CurrentSong.find({}, {limit: 1});
+});
+
+Meteor.publish("userData", function () {
+  return Meteor.users.find({_id: this.userId},
+                           {fields: {'money': 1}});
 });
 
 // Streams
@@ -32,8 +37,8 @@ Chat.addFilter(function(eventName, args) {
   // switch the user id with the user's name
   if (this.userId) {
     var user = Meteor.users.findOne(this.userId);
-    if (args[0] && user && user.username) {
-      return [args[0], user.username];
+    if (args[0] && user && user.name) {
+      return [args[0], user.name];
     }
   }
   return args;

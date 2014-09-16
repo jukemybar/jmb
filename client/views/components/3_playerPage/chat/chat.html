@@ -1,0 +1,23 @@
+<template name="chat">
+  <div class="chat">
+    <form>
+      <input type="text" placeholder="Chat something!" />
+    </form>
+    <ul class="messages">
+      {{#each message}}
+        {{> chatMessage}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="chatMessage">
+  <div class="message">
+    <img class="chat-img" width="50px" src="{{pic}}" />
+    <div class="chat-username">{{name}}</div>
+    <div class="chat-time">{{formattedTime}}</div>
+    <br>
+    <div class="chat-message">{{message}}</div>
+    <br>
+  </div>
+</template>
