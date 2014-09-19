@@ -7,11 +7,13 @@ Router.map(function() {
             return [
                 Meteor.subscribe("settings"),
                 Meteor.subscribe("currentSong"),
-                Meteor.subscribe("playlist")
+                Meteor.subscribe("playlist"),
+                Meteor.subscribe('userData')
             ];
         },
         onRun: function() {
             Session.set("loading", false);
+            Session.set("barId", null);
         }
     });
 
@@ -21,7 +23,8 @@ Router.map(function() {
             return [
                 Meteor.subscribe("settings"),
                 Meteor.subscribe("currentSong"),
-                Meteor.subscribe("playlist")
+                Meteor.subscribe("playlist"),
+                Meteor.subscribe('userData')
             ];
         },
         onRun: function() {
