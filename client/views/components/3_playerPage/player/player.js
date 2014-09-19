@@ -64,8 +64,8 @@ SC.initialize({
 
 Template.player.helpers({
     mainPlayer: function() {
-        // return Meteor.connection._lastSessionId === Settings.findOne().playerId;
-        return Meteor.user.isBar;
+        return Meteor.connection._lastSessionId === Settings.findOne().playerId;
+        // return Meteor.user.isBar;
     },
 });
 

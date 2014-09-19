@@ -20,7 +20,7 @@ Template.playerSetup.events({
 
     // use the session id, and not the user id, so it's limited to 1 window
     Settings.update(Settings.findOne()._id, {
-      $set: {playerId: Meteor.userId()}
+      $set: {playerId: Meteor.connection._lastSessionId}
     });
 
     Meteor.call('set_bar_id', Meteor.userId(), function (error, result) {});

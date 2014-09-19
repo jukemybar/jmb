@@ -2,23 +2,23 @@ Settings = new Meteor.Collection("settings");
 Playlist = new Meteor.Collection("playlist");
 CurrentSong = new Meteor.Collection("currentSong");
 
-// var isMainPlayer = function() {
-//   if (Settings.findOne().playerId || !Meteor.connection._lastSessionId) {
-//     return true;
-//   }
-//   return Settings.findOne().playerId === Meteor.connection._lastSessionId;
-// }
-
 var isMainPlayer = function() {
-  return Meteor.userId() === Session.get("barId");
+  if (Settings.findOne().playerId || !Meteor.connection._lastSessionId) {
+    return true;
+  }
+  return Settings.findOne().playerId === Meteor.connection._lastSessionId;
 }
+
+// var isMainPlayer = function() {
+//   return Meteor.userId() === Session.get("barId");
+// }
 
 Settings.allow({
   'insert': function(userId, doc) {
     return true;
   },
   'update': function(userId, doc, fieldNames, modifier) {
-    return doc.playerId === 0 || doc.playerId === userId;
+    return doc.playerId === 0 || isMainPlayer();
   },
   'remove': function(userId, doc) {
     return false;

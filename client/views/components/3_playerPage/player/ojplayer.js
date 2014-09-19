@@ -2,7 +2,6 @@ OJPlayer = {
   addSongToPlaylist: function(songDoc) {
     songDoc.addedByUsername = Meteor.user().username;
     songDoc.addedByUserId = Meteor.userId();
-    console.log(Meteor.user().profile.image);
     songDoc.image = Meteor.user().profile.image;
     songDoc.addedAt = new Date();
     songDoc.upvotes = 0;
@@ -72,7 +71,7 @@ OJPlayer = {
   loaded: function(isLoaded) {
     var current = CurrentSong.findOne();
     current && CurrentSong.update(current._id, {
-      $set: {loaded: isLoaded, paused: false}
+      $set: {loaded: isLoaded}
     });
   },
   getStartingPosition: function() {

@@ -4,6 +4,12 @@ Meteor.publish("bars", function() {
 Meteor.publish("settings", function() {
   return Settings.find({}, {limit: 1});
 });
+
+// Meteor.publish("settings", function(barId) {
+//     var filter = {player_id: 1};
+//     return Settings.find({_id: barId}, {fields: filter})
+// });
+
 Meteor.publish("playlist", function() {
   return Playlist.find();
 });
