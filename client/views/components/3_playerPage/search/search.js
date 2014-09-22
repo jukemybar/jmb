@@ -26,11 +26,6 @@ var processSearchResults = function(tracks, query) {
     $(".no-results").show();
   }
   _.each(tracks, function(value, key, list) {
-<<<<<<< HEAD:client/views/components/3_playerPage/search/search.js
-
-=======
-    console.log(value);
->>>>>>> 3b7a1772b79639474864a93df7d7c56369dc7596:client/views/components/3_playerPage/search/search.js
     if (value.streamable) {
       if (Playlist.find({id: value.id}).count()) {
         value.inPlaylist = true;

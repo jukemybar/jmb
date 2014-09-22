@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 Meteor.publish("bars", function() {
   Bars._ensureIndex({name: 1}, {unique: 1});
@@ -7,10 +6,6 @@ Meteor.publish("bars", function() {
 });
 Meteor.publish("settings", function(barId) {
   return Settings.find({barId: barId}, {limit: 1});
-=======
-Meteor.publish("settings", function() {
-  return Settings.find({}, {limit: 1});
->>>>>>> 3b7a1772b79639474864a93df7d7c56369dc7596
 });
 
 // Meteor.publish("settings", function(barId) {
@@ -32,13 +27,10 @@ Meteor.publish("userData", function () {
                            {fields: {'money': 1}});
 });
 
-<<<<<<< HEAD
 Meteor.publish(null, function (){
   return Meteor.roles.find({})
 })
 
-=======
->>>>>>> 3b7a1772b79639474864a93df7d7c56369dc7596
 // Streams
 Chat = new Meteor.Stream("chat");
 PlaylistTracker = new Meteor.Stream("playlistTracker");

@@ -64,14 +64,9 @@ SC.initialize({
 
 Template.player.helpers({
     mainPlayer: function() {
-<<<<<<< HEAD
         // return Meteor.userId() === Bars.findOne(Session.get("barId")).userId;
         return Meteor.connection._lastSessionId === Settings.findOne().playerId;
         // return Meteor.user.isBar;
-=======
-        // return Meteor.connection._lastSessionId === Settings.findOne().playerId;
-        return Meteor.user.isBar;
->>>>>>> 3b7a1772b79639474864a93df7d7c56369dc7596
     },
 });
 
