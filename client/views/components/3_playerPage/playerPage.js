@@ -67,6 +67,7 @@ Template.playerPage.created = function() {
     Session.set("missedPlaylist", 0);
     Session.set("missedChats", 0);
     Session.set("selectedTab", "playlist");
+<<<<<<< HEAD
     console.log(Settings.find().fetch());
     Settings.update(Settings.findOne()._id,{
       $set: {
@@ -76,6 +77,8 @@ Template.playerPage.created = function() {
     });
     // console.log(Settings.find().fetch());
 
+=======
+>>>>>>> 3b7a1772b79639474864a93df7d7c56369dc7596
 }
 
 Template.topBar.helpers({

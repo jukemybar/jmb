@@ -1,35 +1,30 @@
 <template name="playerSetup">
   <div class="player-setup">
-  <h1>{{barId}}</h1>
-    {{#if loggingIn}}
-       Logging In
-    {{else}}
-       <img style="float:left; z-index:-10; border-radius: 150px; width: 100px; position:absolute;" src="{{currentUser.profile.image}}" />
-       <div style="margin-left:100px; margin-top:100px;">{{currentUser.profile.name}}</div>
-       <form>
-        <input type="text" id="box-name">
-        <!-- {{pos.lon}} {{pos.lat}} -->
-        <p style="display:none; color: red;" class="error">Bar already exists</p>
-        <button type="submit">Create JukeBox</button>
-      </form>
-      <table class="search-results">
-        <thead></thead>
-        <tbody>
-          {{#each bars}}
-            {{> barResult}}
-          {{/each}}
-        </tbody>
-      </table>
-    {{/if}}
+    <h1>{{barId}}</h1>
+    <p>The speakers from a single device are needed to play sound.</p>
+    <p>Would you like to use the speakers connected to this device?</p>
+    <form>
+      <button type="submit">Yep</button>
+      <button id="logout">Logout</button>
+
+    </form>
   </div>
-</template>
+  <!-- <div>
+  	{{#if loggingIn}}
+       Logging In
+  	{{else}}
+  	   {{currentUser.profile.name}}
+  	{{/if}}
+  	{{#each searchSong}}
+        <tr>
+          <td data-id="{{id}}" class="play">{{title}}</td>
+          <td>{{artist}}</td>
+          <td>{{album}}</td>
+          <td>{{playCount}}</td>
 
-<template name="barResult">
-  <tr class="{{inPlaylist}}">
-    <td class="song-title">{{name}}</td>
+        </tr>
+      {{/each}}
+  	<audio autoplay src="{{playSong}}"></audio>
+  </div> -->
 
-    <td class="preview" id="select-bar" title="Preview">
-      <i class="fa fa-fw fa-lg fa-toggle-right"></i>
-    </td>
-  </tr>
 </template>

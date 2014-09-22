@@ -2544,16 +2544,13 @@ input[type="submit"] {
   box-shadow: 0 1px 3px rgba(0,0,0,.3);
   background-color: #f9f9f7;
   border: 1px solid #fff;
-  margin-left: 20px;
-  overflow: hidden;
-  padding: 20px 20px;
-  width: 330px;
-  display: inline-block;
-  vertical-align: middle;
+  margin: 0 auto;
+  padding: 13px 20px;
+  width: 287px;
 }
 
 #card_number {
-  background-image: url(/images.png),url(/images.png);
+  background-image: url(http://jquerycreditcardvalidator.com/images/images.png),url(http://jquerycreditcardvalidator.com/images/images.png);
   background-position: 2px -121px,260px -61px;
   background-size: 120px 361px,120px 361px;
   background-repeat: no-repeat;
@@ -2587,17 +2584,16 @@ input[type="submit"] {
   background-position: 2px -205px,260px -61px !important;
 }
 
-#paypal-payment-form #card_number.valid.americanexpress {
+#paypal-payment-form #card_number.valid.maestro {
   background-position: 2px -289px,260px -87px !important;
 }
-#paypal-payment-form #card_number.americanexpress {
+#paypal-payment-form #card_number.maestro {
   background-position: 2px -289px,260px -61px !important;
 }
 
 #paypal-payment-form #card_number.valid.discover {
   background-position: 2px -331px,260px -87px !important;
 }
-
 #paypal-payment-form #card_number.discover {
   background-position: 2px -331px,260px -61px !important;
 }
