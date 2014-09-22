@@ -1,24 +1,41 @@
 Settings = new Meteor.Collection("settings");
 Playlist = new Meteor.Collection("playlist");
 CurrentSong = new Meteor.Collection("currentSong");
-
-var isMainPlayer = function() {
-  if (Settings.findOne().playerId || !Meteor.connection._lastSessionId) {
-    return true;
-  }
-  return Settings.findOne().playerId === Meteor.connection._lastSessionId;
-}
+Bars = new Meteor.Collection("bars");
 
 // var isMainPlayer = function() {
-//   return Meteor.userId() === Session.get("barId");
+//   console.log(Meteor.connection);
+//   if (Settings.findOne().playerId || !Meteor.connection._lastSessionId) {
+//     return true;
+//   }
+//   return Settings.findOne().playerId === Meteor.connection._lastSessionId;
 // }
+
+var isMainPlayer = function(userId) {
+  // console.log(Bars.find({_id: }));
+  return true;
+}
+
+Bars.allow({
+  'insert': function(userId, doc) {
+    return Bars.find({name: doc.name}).count() === 0;
+  },
+  'update': function(userId, doc, fieldNames, modifier) {
+    // return doc.playerId === 0 || isMainPlayer();
+    return true;
+  },
+  'remove': function(userId, doc) {
+    return false;
+  }
+});
 
 Settings.allow({
   'insert': function(userId, doc) {
     return true;
   },
   'update': function(userId, doc, fieldNames, modifier) {
-    return doc.playerId === 0 || isMainPlayer();
+    // return doc.playerId === 0 || isMainPlayer();
+    return true;
   },
   'remove': function(userId, doc) {
     return false;
@@ -38,19 +55,19 @@ Playlist.allow({
   },
   'remove': function(userId, doc) {
     // only allowed to remove the songs you added
-    return isMainPlayer() || doc.addedByUserId === userId;
+    return isMainPlayer(userId) || doc.addedByUserId === userId;
   }
 });
 
 CurrentSong.allow({
   'insert': function(userId, doc) {
-    return isMainPlayer();
+    return isMainPlayer(userId);
   },
   'update': function(userId, doc, fieldNames, modifier) {
     return true;
   },
   'remove': function(userId, doc) {
-    return isMainPlayer();
+    return isMainPlayer(userId);
   }
 });
 

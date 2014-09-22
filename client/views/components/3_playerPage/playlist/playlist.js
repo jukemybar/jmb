@@ -56,6 +56,9 @@ Template.playlist.helpers({
     },
     tooltipRemove: function() {
         return this.addedByUserId === Meteor.userId() ? "Remove from playlist" : "";
+    },
+    barName: function(){
+        return Bars.findOne(Session.get("barId")).name
     }
 });
 

@@ -2,6 +2,7 @@ OJPlayer = {
   addSongToPlaylist: function(songDoc) {
     songDoc.addedByUsername = Meteor.user().username;
     songDoc.addedByUserId = Meteor.userId();
+    songDoc.barId = Session.get("barId");
     songDoc.image = Meteor.user().profile.image;
     songDoc.addedAt = new Date();
     songDoc.upvotes = 0;
@@ -13,15 +14,16 @@ OJPlayer = {
     Deps.nonreactive(function() {
       current = CurrentSong.find().count();
     });
+
     if (!current) {
       songDoc.position = 0;
       songDoc.paused = true;
       songDoc.loaded = false;
       songDoc.image = Meteor.user().profile.image;
+      console.log(songDoc);
       CurrentSong.insert(songDoc);
       return;
     }
-
     Playlist.insert(songDoc);
   },
   nextSong: function(current) {

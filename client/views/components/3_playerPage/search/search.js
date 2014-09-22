@@ -33,6 +33,7 @@ var processSearchResults = function(tracks, query) {
       } else {
         value.inPlaylist = false;
       }
+      value.barId = Session.get("barId");
       SearchResults.insert(value);
     }
   });
@@ -67,6 +68,7 @@ Template.search.events({
   },
   "click .add-to-playlist, touchstart .add-to-Playlist": function(event) {
     event.preventDefault();
+    console.log("message");
     OJPlayer.addSongToPlaylist(this);
     if (!Session.equals("selectedTab", "playlist")) {
       Session.set("missedPlaylist", Session.get("missedPlaylist") + 1);
@@ -89,7 +91,7 @@ Template.search.events({
 
 Template.search.helpers({
   searchResults: function() {
-    return SearchResults.find({inPlaylist: false});
+    return SearchResults.find({inPlaylist: false, barId: Session.get("barId")});
   },
 });
 
@@ -98,7 +100,9 @@ Template.searchResult.helpers({
     if (Playlist.find({id: this.id}).count()) {
       if (!this.inPlaylist) {
         SearchResults.update(this._id, {
-          $set: {inPlaylist: true}
+          $set: {
+            inPlaylist: true
+          }
         });
       }
       return "in-playlist";

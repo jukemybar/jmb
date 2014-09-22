@@ -5,7 +5,6 @@ Meteor.methods({
         }).count();
     },
 
-
     refreshOAuthToken: function(service) {
         var getNewAccessToken, oAuthRefreshBody, storeNewAccessToken, token;
         getNewAccessToken = function(service) {

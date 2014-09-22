@@ -6,7 +6,7 @@
 
 Template.app.helpers({
   playerIsSetup: function() {
-    return Settings.findOne().playerId;
+    return Session.get("barId") && Bars.findOne(Session.get("barId")) && Bars.findOne(Session.get("barId")).playerId;
   }
 })
 

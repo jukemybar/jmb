@@ -1,8 +1,11 @@
+
 Meteor.publish("bars", function() {
+  Bars._ensureIndex({name: 1}, {unique: 1});
+  // Bars._ensureIndex({ "name": 1});
   return Bars.find();
 });
-Meteor.publish("settings", function() {
-  return Settings.find({}, {limit: 1});
+Meteor.publish("settings", function(barId) {
+  return Settings.find({barId: barId}, {limit: 1});
 });
 
 // Meteor.publish("settings", function(barId) {
@@ -10,11 +13,13 @@ Meteor.publish("settings", function() {
 //     return Settings.find({_id: barId}, {fields: filter})
 // });
 
-Meteor.publish("playlist", function() {
-  return Playlist.find();
+Meteor.publish("playlist", function(barId) {
+  return Playlist.find({barId: barId});
 });
-Meteor.publish("currentSong", function() {
-  return CurrentSong.find({}, {limit: 1});
+Meteor.publish("currentSong", function(barId) {
+  // var filter = {name: 1, owner: 1};
+  return CurrentSong.find({barId: barId}, {limit: 1});
+  // return CurrentSong.find({}, {limit: 1});
 });
 
 Meteor.publish("userData", function () {
