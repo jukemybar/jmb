@@ -38,7 +38,7 @@ Template.playerSetup.events({
               barId: result,
               playerId: Meteor.connection._lastSessionId
           });
-
+          console.log(Settings.findOne().fetch());
           // Meteor.call('set_bar_id', this._id, function (error, result) {});
         } else {
           $(".error").fadeIn("fast").delay(1000).fadeOut("slow");

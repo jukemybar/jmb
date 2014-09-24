@@ -12,6 +12,7 @@
     "npm": {},
     "moment": {},
     "accounts-merge": {},
-    "paypal": {}
+    "paypal": {},
+    "neat": {}
   }
 }

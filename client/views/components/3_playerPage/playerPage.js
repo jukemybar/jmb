@@ -63,7 +63,7 @@ Template.topBar.events({
     },
 });
 
-Template.playerPage.created = function() {
+Template.playerPage.rendered = function() {
     Session.set("missedPlaylist", 0);
     Session.set("missedChats", 0);
     Session.set("selectedTab", "playlist");

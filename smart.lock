@@ -14,7 +14,8 @@
       "npm": {},
       "moment": {},
       "accounts-merge": {},
-      "paypal": {}
+      "paypal": {},
+      "neat": {}
     },
     "packages": {
       "streams": {
@@ -81,6 +82,11 @@
         "git": "https://github.com/DavidBrear/meteor-paypal.git",
         "tag": "v1.1.1",
         "commit": "eeff60449511f6caa0d0aaf433ea8a06b426858e"
+      },
+      "neat": {
+        "git": "https://github.com/chicagogrooves/meteor-neat.git",
+        "tag": "v1.5.0",
+        "commit": "6c318cce1c02e822d6a340c547273b29b6379197"
       },
       "timesync": {
         "git": "https://github.com/mizzao/meteor-timesync.git",

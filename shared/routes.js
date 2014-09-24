@@ -5,13 +5,15 @@ Router.map(function() {
         path: '/',
         waitOn: function() {
             console.log("barId routes "+Session.get("barId"));
+                // Meteor.autorun(function() {
             return [
-                Meteor.subscribe("settings", Session.get("barId")),
-                Meteor.subscribe("currentSong", Session.get("barId")),
-                Meteor.subscribe("playlist", Session.get("barId")),
-                Meteor.subscribe("bars"),
-                Meteor.subscribe('userData')
+                    Meteor.subscribe("settings", Session.get("barId")),
+                    Meteor.subscribe("currentSong", Session.get("barId")),
+                    Meteor.subscribe("playlist", Session.get("barId")),
+                    Meteor.subscribe("bars"),
+                    Meteor.subscribe('userData')
             ];
+                // });
         },
         onRun: function() {
             Session.set("loading", false);
@@ -23,11 +25,13 @@ Router.map(function() {
         path: '/:_id',
         waitOn: function() {
             return [
-                Meteor.subscribe("settings", Session.get("barId")),
-                Meteor.subscribe("currentSong", Session.get("barId")),
-                Meteor.subscribe("playlist", Session.get("barId")),
-                Meteor.subscribe("bars"),
-                Meteor.subscribe('userData')
+                // Meteor.autorun(function() {
+                    Meteor.subscribe("settings", Session.get("barId")),
+                    Meteor.subscribe("currentSong", Session.get("barId")),
+                    Meteor.subscribe("playlist", Session.get("barId")),
+                    Meteor.subscribe("bars"),
+                    Meteor.subscribe('userData')
+                // })
             ];
         },
         onRun: function() {

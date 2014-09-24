@@ -65,6 +65,7 @@ SC.initialize({
 Template.player.helpers({
     mainPlayer: function() {
         // return Meteor.userId() === Bars.findOne(Session.get("barId")).userId;
+        console.log(Settings.findOne());
         return Meteor.connection._lastSessionId === Settings.findOne().playerId;
         // return Meteor.user.isBar;
     },
