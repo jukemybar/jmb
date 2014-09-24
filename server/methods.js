@@ -5,7 +5,6 @@ Meteor.methods({
         }).count();
     },
 
-
     refreshOAuthToken: function(service) {
         var getNewAccessToken, oAuthRefreshBody, storeNewAccessToken, token;
         getNewAccessToken = function(service) {
@@ -90,5 +89,12 @@ Meteor.methods({
     },
     mergeItems: function(mergedUserId) {
         console.log('Merging DB items of user' + mergedUserId + 'with user' + Meteor.userId());
+    },
+    set_bar_id: function(user_id){
+        console.log("HOIUHOI");
+        console.log(user_id);
+        // Meteor.users.update(user_id,{
+        //   $set: {isBar: true}
+        // });
     }
 });

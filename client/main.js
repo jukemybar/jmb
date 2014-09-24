@@ -17,11 +17,7 @@ Meteor.startup(function() {
     Session.setDefault("selectedTab", "playlist");
     Session.setDefault("missedChats", 0);
     Session.setDefault("missedPlaylist", 0);
-    if (Settings.find().count() === 0) {
-        Settings.insert({
-            playerId: 0,
-        });
-    }
+
 });
 
 

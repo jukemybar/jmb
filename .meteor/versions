@@ -5,9 +5,16 @@ accounts-oauth@1.0.0
 accounts-password@1.0.0
 accounts-ui-unstyled@1.0.0
 accounts-ui@1.0.0
+<<<<<<< HEAD
 appcache@1.0.0
 application-configuration@1.0.0
 autoupdate@1.0.5
+=======
+alanning:roles@1.2.12
+appcache@1.0.0
+application-configuration@1.0.0
+autoupdate@1.0.4
+>>>>>>> master
 binary-heap@1.0.0
 blaze-tools@1.0.0
 blaze@1.0.3
@@ -30,7 +37,11 @@ handlebars@1.0.0
 highlight@0.0.0
 html-tools@1.0.0
 htmljs@1.0.0
+<<<<<<< HEAD
 http@1.0.3
+=======
+http@1.0.2
+>>>>>>> master
 id-map@1.0.0
 iron-core@0.2.0
 iron-dynamic-template@0.2.1
@@ -40,7 +51,11 @@ iron-router@0.8.2
 jquery-ui@0.0.0
 jquery@1.0.0
 json@1.0.0
+<<<<<<< HEAD
 less@1.0.6
+=======
+less@1.0.5
+>>>>>>> master
 livedata@1.0.7
 localstorage@1.0.0
 logging@1.0.2

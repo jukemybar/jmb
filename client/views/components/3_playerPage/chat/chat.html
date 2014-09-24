@@ -1,6 +1,5 @@
 <template name="chat">
   <div class="chat">
-    <h1>HelloWorld</h1>
     <form>
       <input type="text" placeholder="Chat something!" />
     </form>
@@ -14,9 +13,11 @@
 
 <template name="chatMessage">
   <div class="message">
-    <img width="50px" src="{{pic}}" />
-    <span class="chat-username">{{name}}</span>
-    <span class="chat-time">{{formattedTime}}: </span>
-    <span class="chat-message">{{message}}</span>
+    <img class="chat-img" width="50px" src="{{pic}}" />
+    <div class="chat-username">{{name}}</div>
+    <div class="chat-time">{{formattedTime}}</div>
+    <br>
+    <div class="chat-message">{{message}}</div>
+    <br>
   </div>
 </template>

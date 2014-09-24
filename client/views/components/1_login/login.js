@@ -100,7 +100,7 @@ Template.login.events({
     'click button#logout': function(e) {
         Meteor.logout(function(error) {
             if (error) {
-                // console.log('error', error);
+                console.log('error', error);
             }
         });
         e.preventDefault();
