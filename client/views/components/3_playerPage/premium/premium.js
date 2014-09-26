@@ -45,18 +45,21 @@ Template.premium.events({
         var card_data = Template.premium.card_data();
 
         console.log(card_data);
+        var amount = $('#quantity_credit').val();
 
         //Probably a good idea to disable the submit button here to prevent multiple submissions.
-
+        console.log($('#quantity_credit').val());
         Meteor.Paypal.purchase(card_data, {
-            total: '1.50',
+            total: amount,
             currency: 'USD'
         }, function(err, results) {
             if (err) {
                 console.error(err);
             } else {
                 console.log(results);
-                Meteor.user._extends(results);
+                if(results.saved){
+                    Meteor.users.update(Meteor.userId(), {$set: {'paypal': results.payment }, $inc: {'money': parseInt(amount)}});
+                }
             }
         });
     }
@@ -80,7 +83,7 @@ Template.premium.rendered = function() {
 
         $('#card-type').val(result.card_type.name);
         $('#card_number').addClass(result.card_type.name);
-        
+
         if (result.length_valid && result.luhn_valid) {
             return $('#card_number').addClass('valid');
         } else {

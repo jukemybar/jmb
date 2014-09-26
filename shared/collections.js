@@ -60,6 +60,6 @@ CurrentSong.allow({
 Meteor.users.allow({
     update: function(userId, doc){
       // console.log(doc);
-        return doc._id === userId; // can update their own profile
+      return doc._id === userId; // can update their own profile
     }
 });

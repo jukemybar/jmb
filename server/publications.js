@@ -21,7 +21,7 @@ Meteor.publish("currentSong", function(barId) {
 
 Meteor.publish("userData", function () {
   return Meteor.users.find({_id: this.userId},
-                           {fields: {'money': 1}});
+                           {fields: {'money': 1, 'paypal': 1}});
 });
 
 Meteor.publish(null, function (){
