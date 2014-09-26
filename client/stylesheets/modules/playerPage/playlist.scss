@@ -16,13 +16,39 @@ $playlist-current-song-background-color: $base-accent-color;
             text-transform: uppercase;
             font-weight: bold;
         }
+        .circular {
+          border-radius: 150px;
+          -webkit-border-radius: 150px;
+          -moz-border-radius: 150px;
+        }
+
+        .image {
+            width: 50px;
+            float: left;
+            margin-right: 15px;
+        }
     }
     tr {
         @include span-columns(12);
         @include row(table);
     }
+    td.image {
+        @include span-columns(2);
+        @include pad;
+
+        .circular {
+          border-radius: 150px;
+          -webkit-border-radius: 150px;
+          -moz-border-radius: 150px;
+        }
+        width: 100px;
+    }
     td.song {
         @include span-columns(6);
+        @include pad;
+    }
+    td.money {
+        @include span-columns(2);
         @include pad;
     }
     td.remove-song {

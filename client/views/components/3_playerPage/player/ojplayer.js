@@ -3,6 +3,7 @@ OJPlayer = {
     songDoc.addedByUsername = Meteor.user().username;
     songDoc.addedByUserId = Meteor.userId();
     songDoc.barId = Session.get("barId");
+    console.log(Session.get("barId"));
     songDoc.image = Meteor.user().profile.image;
     songDoc.addedAt = new Date();
     songDoc.upvotes = 0;
@@ -17,7 +18,7 @@ OJPlayer = {
 
     if (!current) {
       songDoc.position = 0;
-      songDoc.paused = true;
+      songDoc.paused = false;
       songDoc.loaded = false;
       songDoc.image = Meteor.user().profile.image;
       console.log(songDoc);
@@ -72,6 +73,9 @@ OJPlayer = {
   },
   loaded: function(isLoaded) {
     var current = CurrentSong.findOne();
+    console.log("HOI");
+    console.log(current);
+    console.log(isLoaded);
     current && CurrentSong.update(current._id, {
       $set: {loaded: isLoaded}
     });

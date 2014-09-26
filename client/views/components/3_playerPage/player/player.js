@@ -18,6 +18,7 @@ var soundManagerOptions = {
     useHTML5Audio: true,
     preferFlash: false,
     onload: function() {
+        console.log(currentSound);
         var startingPosition;
         Deps.nonreactive(function() {
             OJPlayer.loaded(true);
@@ -64,22 +65,25 @@ SC.initialize({
 
 Template.player.helpers({
     mainPlayer: function() {
-        // return Meteor.userId() === Bars.findOne(Session.get("barId")).userId;
-        console.log(Settings.findOne());
-        return Meteor.connection._lastSessionId === Settings.findOne().playerId;
+        return Meteor.userId() === Bars.findOne(Session.get("barId")).userId;
+        // console.log(Settings.findOne());
+        // return Meteor.connection._lastSessionId === Settings.findOne().playerId;
         // return Meteor.user.isBar;
     },
 });
 
 Template.hostPlayer.helpers({
     loadStreaming: function() {
+        console.log(this.loaded);
         if (!this.loaded && Session.equals("loading", false)) {
             // don't want the song loading multiple times
             Session.set("loading", true);
             SC.stream(
                 this.uri, soundManagerOptions, function(sound) {
-                    currentSound = sound;
+                    console.log("******************");
                     console.log(sound);
+                    console.log("******************");
+                    currentSound = sound;
                 });
         }
     },

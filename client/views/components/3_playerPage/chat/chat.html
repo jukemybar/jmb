@@ -3,21 +3,20 @@
     <form>
       <input type="text" placeholder="Chat something!" />
     </form>
-    <ul class="messages">
+    <div class="messages">
       {{#each message}}
         {{> chatMessage}}
       {{/each}}
-    </ul>
+    </div>
   </div>
 </template>
 
 <template name="chatMessage">
   <div class="message">
-    <img class="chat-img" width="50px" src="{{pic}}" />
+    <img class="chat-image circular" src="{{pic}}" />
     <div class="chat-username">{{name}}</div>
     <div class="chat-time">{{formattedTime}}</div>
-    <br>
+    <br/>
     <div class="chat-message">{{message}}</div>
-    <br>
   </div>
 </template>

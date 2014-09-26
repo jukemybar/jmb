@@ -7,7 +7,6 @@ Router.map(function() {
             console.log("barId routes "+Session.get("barId"));
                 // Meteor.autorun(function() {
             return [
-                    Meteor.subscribe("settings", Session.get("barId")),
                     Meteor.subscribe("currentSong", Session.get("barId")),
                     Meteor.subscribe("playlist", Session.get("barId")),
                     Meteor.subscribe("bars"),
@@ -26,7 +25,6 @@ Router.map(function() {
         waitOn: function() {
             return [
                 // Meteor.autorun(function() {
-                    Meteor.subscribe("settings", Session.get("barId")),
                     Meteor.subscribe("currentSong", Session.get("barId")),
                     Meteor.subscribe("playlist", Session.get("barId")),
                     Meteor.subscribe("bars"),

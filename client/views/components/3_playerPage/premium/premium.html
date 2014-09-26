@@ -1,13 +1,5 @@
 <template name="premium">
     <div class="premium">
-        <div class="empty-playlist-message">{{moneyMessage}}</div>
-      <div id="profile">
-        <img style="max-width:100px" src="{{user.profile.image}}"/>
-        <div class="premium">
-            <button id="exit-bar">Exit the Bar</button>
-            <button id="logout">Logout</button>
-          </div>
-      </div>
       <!-- {{> paypalCreditCardForm }} -->
     <div id="hoi"><form class="form" id="paypal-payment-form" action="#">
         <h4>Payment details</h4>
@@ -43,5 +35,17 @@
         <button type="submit" class='btn btn-default'>Submit</button>
     </form>
      </div>
+
+
+     <div class="empty-playlist-message">{{moneyMessage}}</div>
+      <div id="profile">
+        <img style="max-width:100px" src="{{user.profile.image}}"/>
+        <div class="premium">
+            <button id="exit-bar">Exit</button>
+            <br>
+            <button id="logout">Logout</button>
+          </div>
+      </div>
+
     </div>
 </template>

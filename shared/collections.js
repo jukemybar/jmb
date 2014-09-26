@@ -1,4 +1,3 @@
-Settings = new Meteor.Collection("settings");
 Playlist = new Meteor.Collection("playlist");
 CurrentSong = new Meteor.Collection("currentSong");
 Bars = new Meteor.Collection("bars");
@@ -19,19 +18,6 @@ var isMainPlayer = function(userId) {
 Bars.allow({
   'insert': function(userId, doc) {
     return Bars.find({name: doc.name}).count() === 0;
-  },
-  'update': function(userId, doc, fieldNames, modifier) {
-    // return doc.playerId === 0 || isMainPlayer();
-    return true;
-  },
-  'remove': function(userId, doc) {
-    return false;
-  }
-});
-
-Settings.allow({
-  'insert': function(userId, doc) {
-    return true;
   },
   'update': function(userId, doc, fieldNames, modifier) {
     // return doc.playerId === 0 || isMainPlayer();

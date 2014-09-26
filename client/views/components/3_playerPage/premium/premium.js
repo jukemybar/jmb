@@ -2,19 +2,22 @@ Template.premium.events({
 
     "click #logout, touchstart #logout": function(event) {
         event.preventDefault();
-        Session.set("barId", null);
-        Settings.update(Settings.findOne()._id, {
+        Session.set("loading", false);
+
+        Bars.update(Session.get("barId"), {
           $set: {playerId: 0}
         });
+        Session.set("barId", null);
 
         Meteor.logout();
     },
     "click #exit-bar, touchstart #exit-bar": function(event) {
         event.preventDefault();
-        Session.set("barId", null);
-        Settings.update(Settings.findOne()._id, {
+        Session.set("loading", false);
+        Bars.update(Session.get("barId"), {
           $set: {playerId: 0}
         });
+        Session.set("barId", null);
     }
 
 });

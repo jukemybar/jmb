@@ -4,9 +4,6 @@ Meteor.publish("bars", function() {
   // Bars._ensureIndex({ "name": 1});
   return Bars.find();
 });
-Meteor.publish("settings", function(barId) {
-  return Settings.find({barId: barId}, {limit: 1});
-});
 
 // Meteor.publish("settings", function(barId) {
 //     var filter = {player_id: 1};

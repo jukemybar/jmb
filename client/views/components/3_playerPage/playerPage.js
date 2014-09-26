@@ -67,15 +67,6 @@ Template.playerPage.rendered = function() {
     Session.set("missedPlaylist", 0);
     Session.set("missedChats", 0);
     Session.set("selectedTab", "playlist");
-    console.log(Settings.find().fetch());
-    Settings.update(Settings.findOne()._id,{
-      $set: {
-        barId: Session.get("barId"),
-        playerId: Meteor.connection._lastSessionId
-      }
-    });
-    // console.log(Settings.find().fetch());
-
 }
 
 Template.topBar.helpers({

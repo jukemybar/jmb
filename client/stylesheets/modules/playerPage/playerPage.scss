@@ -1,6 +1,7 @@
 $tab-search-background-color: $deep-orange;
 $tab-playlist-background-color: $base-accent-color;
 $tab-chat-background-color: $cyan;
+$tab-premium-background-color: $premium-blue;
 $tab-text-color: $base-background-color;
 $tab-padding: rem(10);
 $bottom-bar-padding: rem(16);
@@ -15,7 +16,7 @@ $bottom-bar-background-color: $base-accent-color;
 
     // tabs
     li.tab {
-        @include span-columns(4, block-collapse);
+        @include span-columns(3, block-collapse);
         @include pad;
         color: $med-light-gray;
         text-transform: uppercase;
@@ -44,6 +45,12 @@ $bottom-bar-background-color: $base-accent-color;
         background-color: darken($tab-chat-background-color, 15);
         &:hover, &.selected {
             background-color: $tab-chat-background-color;
+        }
+    }
+    .tab-premium {
+        background-color: darken($tab-premium-background-color, 15);
+        &:hover, &.selected {
+            background-color: $tab-premium-background-color;
         }
     }
 
