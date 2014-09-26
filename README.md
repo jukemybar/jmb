@@ -2,6 +2,10 @@ JMB
 ===
 
 ``` sh
-$ npm install -g meteorite
-$ mrt --settings local.json
+$ sudo npm install -g meteorite
+$ sudo mrt --settings local.json
+#Start listening for change to compile scss
+$ gem install bourbon
+$ cd client/stylesheets
+$ sass --watch app.scss:main.css
 ```
