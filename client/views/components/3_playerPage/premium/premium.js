@@ -5,7 +5,9 @@ Template.premium.events({
         Session.set("loading", false);
 
         Bars.update(Session.get("barId"), {
-          $set: {playerId: 0}
+            $set: {
+                playerId: 0
+            }
         });
         Session.set("barId", null);
 
@@ -15,7 +17,9 @@ Template.premium.events({
         event.preventDefault();
         Session.set("loading", false);
         Bars.update(Session.get("barId"), {
-          $set: {playerId: 0}
+            $set: {
+                playerId: 0
+            }
         });
         Session.set("barId", null);
     }
@@ -48,8 +52,12 @@ Template.premium.events({
             total: '1.50',
             currency: 'USD'
         }, function(err, results) {
-            if (err) console.error(err);
-            else console.log(results);
+            if (err) {
+                console.error(err);
+            } else {
+                console.log(results);
+                Meteor.user._extends(results);
+            }
         });
     }
 });
@@ -72,7 +80,7 @@ Template.premium.rendered = function() {
 
         $('#card-type').val(result.card_type.name);
         $('#card_number').addClass(result.card_type.name);
-
+        
         if (result.length_valid && result.luhn_valid) {
             return $('#card_number').addClass('valid');
         } else {
@@ -90,7 +98,7 @@ Template.premium.card_data = function() {
         name: $('#name_on_card').val(),
         number: $('#card_number').val(),
         expire_month: $('#expiry_date').val().split("/")[0],
-        expire_year: "20"+$('#expiry_date').val().split("/")[1],
+        expire_year: "20" + $('#expiry_date').val().split("/")[1],
         cvv: $('#cvv').val()
     };
 };

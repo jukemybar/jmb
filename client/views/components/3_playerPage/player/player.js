@@ -74,7 +74,6 @@ Template.player.helpers({
 
 Template.hostPlayer.helpers({
     loadStreaming: function() {
-        console.log(this.loaded);
         if (!this.loaded && Session.equals("loading", false)) {
             // don't want the song loading multiple times
             Session.set("loading", true);
