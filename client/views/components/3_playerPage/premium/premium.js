@@ -4,11 +4,13 @@ Template.premium.events({
         event.preventDefault();
         Session.set("loading", false);
 
-        Bars.update(Session.get("barId"), {
-            $set: {
-                playerId: 0
-            }
-        });
+        if(Bars.find({_id: Session.get("barId"), userId: Meteor.userId()}).count() !== 0){
+            Bars.update({_id: Session.get("barId")}, {
+                $set: {
+                    playerId: 0
+                }
+            });
+        }
         Session.set("barId", null);
 
         Meteor.logout();
@@ -16,11 +18,13 @@ Template.premium.events({
     "click #exit-bar, touchstart #exit-bar": function(event) {
         event.preventDefault();
         Session.set("loading", false);
-        Bars.update(Session.get("barId"), {
-            $set: {
-                playerId: 0
-            }
-        });
+        if(Bars.find({_id: Session.get("barId"), userId: Meteor.userId()}).count() !== 0){
+            Bars.update({_id: Session.get("barId")}, {
+                $set: {
+                    playerId: 0
+                }
+            });
+        }
         Session.set("barId", null);
     }
 

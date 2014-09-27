@@ -1493,10 +1493,12 @@ th {
 .fa-caret-square-o-up:before {
   content: "\f151";
 }
+*/
 .fa-toggle-right:before,
 .fa-caret-square-o-right:before {
-  content: "\f152";
-}
+  content: "\f152"; }
+
+/*
 .fa-euro:before,
 .fa-eur:before {
   content: "\f153";
@@ -2409,6 +2411,14 @@ input[type="submit"] {
   text-align: center;
   color: #ff5722; }
   .search-results td.add-to-playlist:hover {
+    cursor: pointer;
+    background-color: #ff5722;
+    color: white; }
+.search-results td.preview {
+  padding: 2.35765%;
+  text-align: center;
+  color: #ff5722; }
+  .search-results td.preview:hover {
     cursor: pointer;
     background-color: #ff5722;
     color: white; }

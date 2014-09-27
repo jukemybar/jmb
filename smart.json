@@ -13,6 +13,7 @@
     "moment": {},
     "accounts-merge": {},
     "paypal": {},
-    "neat": {}
+    "neat": {},
+    "fastclick": {}
   }
 }

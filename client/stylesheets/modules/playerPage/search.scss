@@ -24,12 +24,24 @@ $search-results-message-color: $medium-gray;
             color: $base-background-color;
         }
     }
+    td.preview {
+        @include pad;
+        @include reset-display;
+        text-align: center;
+        color: $search-color;
+        &:hover {
+            cursor: pointer;
+            background-color: $search-color;
+            color: $base-background-color;
+        }
+    }
     .highlight {
         font-weight: bold;
         color: $search-color;
         background-color: inherit;
     }
 }
+
 .results-message {
     display: none;
     text-align: center;

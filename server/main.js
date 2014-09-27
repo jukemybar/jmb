@@ -1,10 +1,10 @@
 Meteor.startup(function() {
-    // initial setup
-    if (!Bars.find().count() === 0) {
-        Bars.insert({
-            playerId: 0,
-        });
-    }
+    // // initial setup
+    // if (!Bars.find().count() === 0) {
+    //     Bars.insert({
+    //         playerId: 0,
+    //     });
+    // }
 
     ServiceConfiguration.configurations.remove({
         $or: [{

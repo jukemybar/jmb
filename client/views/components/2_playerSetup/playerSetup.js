@@ -62,39 +62,46 @@ Template.playerSetup.events({
     "click #select-bar, touchstart #select-bar": function(event) {
         event.preventDefault();
         var currentId = this._id;
-        Bars.update(this._id, {
-                $set: {
-                    playerId: Meteor.connection._lastSessionId
+        if (Bars.find({
+            _id: this._id,
+            userId: Meteor.userId()
+        }).count() !== 0) {
+            Bars.update(this._id, {
+                    $set: {
+                        playerId: Meteor.connection._lastSessionId
+                    }
+                },
+                function(error, result) {
+                    if (result) {
+                        Session.set("barId", currentId);
+                        // make sure this runs only once when the main player is set up
+                        Deps.nonreactive(function() {
+                            // load in a song from the top of the playlist if the current
+                            // song is empty
+                            if (CurrentSong.find().count() === 0) {
+                                OJPlayer.nextSong();
+                            }
+                            // start off the player paused and make sure loaded status
+                            // is set as off
+                            if (CurrentSong.find().count() !== 0) {
+                                CurrentSong.update(CurrentSong.findOne()._id, {
+                                    $set: {
+                                        paused: false,
+                                        loaded: false
+                                    }
+                                });
+                            }
+                        });
+                        // use the session id, and not the user id, so it's limited to 1 window
+                        // Meteor.call('set_bar_id', this._id, function (error, result) {});
+                    } else {
+                        $(".error").fadeIn("fast").delay(1000).fadeOut("slow");
+                    }
                 }
-            },
-            function(error, result) {
-                if (result) {
-                    Session.set("barId", currentId);
-                    // make sure this runs only once when the main player is set up
-                    Deps.nonreactive(function() {
-                        // load in a song from the top of the playlist if the current
-                        // song is empty
-                        if (CurrentSong.find().count() === 0) {
-                            OJPlayer.nextSong();
-                        }
-                        // start off the player paused and make sure loaded status
-                        // is set as off
-                        if (CurrentSong.find().count() !== 0) {
-                            CurrentSong.update(CurrentSong.findOne()._id, {
-                                $set: {
-                                    paused: false,
-                                    loaded: false
-                                }
-                            });
-                        }
-                    });
-                    // use the session id, and not the user id, so it's limited to 1 window
-                    // Meteor.call('set_bar_id', this._id, function (error, result) {});
-                } else {
-                    $(".error").fadeIn("fast").delay(1000).fadeOut("slow");
-                }
-            }
-        );
+            );
+        } else {
+            Session.set("barId", currentId);
+        }
     }
 
 });

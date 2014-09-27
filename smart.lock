@@ -15,7 +15,8 @@
       "moment": {},
       "accounts-merge": {},
       "paypal": {},
-      "neat": {}
+      "neat": {},
+      "fastclick": {}
     },
     "packages": {
       "streams": {
@@ -87,6 +88,11 @@
         "git": "https://github.com/chicagogrooves/meteor-neat.git",
         "tag": "v1.5.0",
         "commit": "6c318cce1c02e822d6a340c547273b29b6379197"
+      },
+      "fastclick": {
+        "git": "https://github.com/percolatestudio/meteor-fastclick",
+        "tag": "v0.6.7",
+        "commit": "fcb3bfd34d9f6874e626b4e24e8f54107938db41"
       },
       "timesync": {
         "git": "https://github.com/mizzao/meteor-timesync.git",
