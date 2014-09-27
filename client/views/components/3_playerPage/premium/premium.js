@@ -8,25 +8,39 @@ Template.premium.events({
             userId: Meteor.userId()
         }).count() !== 0) {
             console.log("have to delete");
-            CurrentSong.update(CurrentSong.findOne()._id, {
-                $set: {
-                    paused: true
-                }
-            }, function(err, success) {
-                if (!err) {
+            if (CurrentSong.findOne()) {
 
-                    Bars.update({
-                        _id: Session.get("barId")
-                    }, {
-                        $set: {
-                            playerId: 0
-                        }
-                    });
+                CurrentSong.update(CurrentSong.findOne()._id, {
+                    $set: {
+                        paused: true
+                    }
+                }, function(err, success) {
+                    if (!err) {
 
-                    Session.set("barId", null);
-                    Meteor.logout();
-                }
-            });
+                        Bars.update({
+                            _id: Session.get("barId")
+                        }, {
+                            $set: {
+                                playerId: 0
+                            }
+                        });
+
+                        Session.set("barId", null);
+                        Meteor.logout();
+                    }
+                });
+            } else {
+                Bars.update({
+                    _id: Session.get("barId")
+                }, {
+                    $set: {
+                        playerId: 0
+                    }
+                });
+
+                Session.set("barId", null);
+                Meteor.logout();
+            }
         } else {
             Session.set("barId", null);
             Meteor.logout();
@@ -41,24 +55,37 @@ Template.premium.events({
             userId: Meteor.userId()
         }).count() !== 0) {
             console.log("have to delete");
-            CurrentSong.update(CurrentSong.findOne()._id, {
-                $set: {
-                    paused: true
-                }
-            }, function(err, success) {
-                if (!err) {
+            if (CurrentSong.findOne()) {
 
-                    Bars.update({
-                        _id: Session.get("barId")
-                    }, {
-                        $set: {
-                            playerId: 0
-                        }
-                    });
+                CurrentSong.update(CurrentSong.findOne()._id, {
+                    $set: {
+                        paused: true
+                    }
+                }, function(err, success) {
+                    if (!err) {
 
-                    Session.set("barId", null);
-                }
-            });
+                        Bars.update({
+                            _id: Session.get("barId")
+                        }, {
+                            $set: {
+                                playerId: 0
+                            }
+                        });
+
+                        Session.set("barId", null);
+                    }
+                });
+            } else {
+                Bars.update({
+                    _id: Session.get("barId")
+                }, {
+                    $set: {
+                        playerId: 0
+                    }
+                });
+
+                Session.set("barId", null);
+            }
         } else {
             Session.set("barId", null);
         }
