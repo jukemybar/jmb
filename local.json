@@ -1,3 +1,6 @@
 {
-	"public": false
+    "public": false,
+    "paypal_client_id": "AfdxEhC5RwO_leZ0L5ccCA571LJguT6klOCGP7ez3EZXxIDyf1ybKpNdKbiZ",
+    "paypal_client_secret": "EPCXVBApHEO9MSTsMco5Fse8c58nmg5CP0QaSQHwjQ-xA8G6LtuGkPce56fE",
+    "host": "api.sandbox.paypal.com"
 }

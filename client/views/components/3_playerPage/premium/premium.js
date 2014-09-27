@@ -48,7 +48,7 @@ Template.premium.events({
         var amount = $('#quantity_credit').val();
 
         //Probably a good idea to disable the submit button here to prevent multiple submissions.
-        console.log($('#quantity_credit').val());
+
         Meteor.Paypal.purchase(card_data, {
             total: amount,
             currency: 'USD'
