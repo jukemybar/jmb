@@ -67,6 +67,18 @@ Template.playerPage.rendered = function() {
     Session.set("missedPlaylist", 0);
     Session.set("missedChats", 0);
     Session.set("selectedTab", "playlist");
+    if (Bars.find({
+        _id: Session.get("barId"),
+        userId: Meteor.userId()
+    }).count() !== 0) {
+        var current = CurrentSong.findOne();
+        current && CurrentSong.update(current._id, {
+            $set: {
+                loaded: false,
+                paused: false
+            }
+        });
+    }
 }
 
 Template.topBar.helpers({

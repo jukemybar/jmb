@@ -86,7 +86,6 @@ Template.playerSetup.events({
                             if (CurrentSong.find().count() !== 0) {
                                 CurrentSong.update(CurrentSong.findOne()._id, {
                                     $set: {
-                                        paused: false,
                                         loaded: false
                                     }
                                 });
@@ -100,6 +99,7 @@ Template.playerSetup.events({
                 }
             );
         } else {
+            console.log("just set session barId");
             Session.set("barId", currentId);
         }
     }

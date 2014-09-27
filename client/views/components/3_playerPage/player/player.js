@@ -18,7 +18,6 @@ var soundManagerOptions = {
     useHTML5Audio: true,
     preferFlash: false,
     onload: function() {
-        console.log(currentSound);
         var startingPosition;
         Deps.nonreactive(function() {
             OJPlayer.loaded(true);
@@ -74,7 +73,7 @@ Template.player.helpers({
 
 Template.hostPlayer.helpers({
     loadStreaming: function() {
-        if (!this.loaded && Session.equals("loading", false)) {
+        if (!this.loaded) {  // && Session.equals("loading", false)
             // don't want the song loading multiple times
             Session.set("loading", true);
             SC.stream(

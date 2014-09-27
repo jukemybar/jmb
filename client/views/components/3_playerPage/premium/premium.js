@@ -2,30 +2,66 @@ Template.premium.events({
 
     "click #logout, touchstart #logout": function(event) {
         event.preventDefault();
-        Session.set("loading", false);
-
-        if(Bars.find({_id: Session.get("barId"), userId: Meteor.userId()}).count() !== 0){
-            Bars.update({_id: Session.get("barId")}, {
+        // Session.set("loading", false);
+        if (Bars.find({
+            _id: Session.get("barId"),
+            userId: Meteor.userId()
+        }).count() !== 0) {
+            console.log("have to delete");
+            CurrentSong.update(CurrentSong.findOne()._id, {
                 $set: {
-                    playerId: 0
+                    paused: true
+                }
+            }, function(err, success) {
+                if (!err) {
+
+                    Bars.update({
+                        _id: Session.get("barId")
+                    }, {
+                        $set: {
+                            playerId: 0
+                        }
+                    });
+
+                    Session.set("barId", null);
+                    Meteor.logout();
                 }
             });
+        } else {
+            Session.set("barId", null);
+            Meteor.logout();
         }
-        Session.set("barId", null);
 
-        Meteor.logout();
     },
     "click #exit-bar, touchstart #exit-bar": function(event) {
         event.preventDefault();
-        Session.set("loading", false);
-        if(Bars.find({_id: Session.get("barId"), userId: Meteor.userId()}).count() !== 0){
-            Bars.update({_id: Session.get("barId")}, {
+        // Session.set("loading", false);
+        if (Bars.find({
+            _id: Session.get("barId"),
+            userId: Meteor.userId()
+        }).count() !== 0) {
+            console.log("have to delete");
+            CurrentSong.update(CurrentSong.findOne()._id, {
                 $set: {
-                    playerId: 0
+                    paused: true
+                }
+            }, function(err, success) {
+                if (!err) {
+
+                    Bars.update({
+                        _id: Session.get("barId")
+                    }, {
+                        $set: {
+                            playerId: 0
+                        }
+                    });
+
+                    Session.set("barId", null);
                 }
             });
+        } else {
+            Session.set("barId", null);
         }
-        Session.set("barId", null);
     }
 
 });
@@ -61,8 +97,15 @@ Template.premium.events({
                 console.error(err);
             } else {
                 console.log(results);
-                if(results.saved){
-                    Meteor.users.update(Meteor.userId(), {$set: {'paypal': results.payment }, $inc: {'money': parseInt(amount)}});
+                if (results.saved) {
+                    Meteor.users.update(Meteor.userId(), {
+                        $set: {
+                            'paypal': results.payment
+                        },
+                        $inc: {
+                            'money': parseInt(amount)
+                        }
+                    });
                 }
             }
         });
