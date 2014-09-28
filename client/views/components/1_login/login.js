@@ -8,11 +8,11 @@ Template.login.events({
 
     // Sign in, sign up or merge Facebook login service
     'click button#login-facebook': function(e) {
+            console.log("message");
         Meteor.signInWithFacebook({}, function(error, mergedUserId) {
             if (error) {
                 console.log('error', error);
             }
-
             // mergedUserId is set if a merge occured
             if (mergedUserId) {
                 console.log('mergedUserId', mergedUserId);

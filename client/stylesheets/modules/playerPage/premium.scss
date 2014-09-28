@@ -3,12 +3,29 @@
     @include outer-container;
     @include reset-display;
     #profile {
-        @include span-columns(3);
+        @include outer-container;
+        @include reset-display;
+        @include pad();
+        float: right;
+    }
+    #premium-container {
+        @include span-columns(12);
         @include pad();
     }
-    #hoi {
-        @include span-columns(9);
-        @include pad();
+    .user-image {
+        border-radius: 150px;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        margin-top: -50px;
+        margin-left: 200px;
+        z-index: -10;
+        // left: 10px;
+        .circular {
+          border-radius: 150px;
+          -webkit-border-radius: 150px;
+          -moz-border-radius: 150px;
+        }
     }
 
     #card_number {

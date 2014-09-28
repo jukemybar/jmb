@@ -38,6 +38,11 @@ Accounts.onCreateUser(function(options, user) {
     } else {
         user.profile.image = profile.image || 'http://b.static.ak.fbcdn.net/rsrc.php/v1/yo/r/UlIqmHJn-SK.gif';
     }
+    if (profile.services && profile.services.facebook && profile.services.facebook.id) {
+        user.profile.image = "http://graph.facebook.com/" + profile.services.facebook.id + "/picture/?type=large";;
+    } else {
+        user.profile.image = profile.image || 'http://b.static.ak.fbcdn.net/rsrc.php/v1/yo/r/UlIqmHJn-SK.gif';
+    }
     // Meteor.users.update({_id:user._id}, { $set: user });
     console.log('onCreateUser end', user);
     return user;

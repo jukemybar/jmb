@@ -784,9 +784,10 @@ th {
 .fa-step-forward:before {
   content: "\f051"; }
 
-/*.fa-eject:before {
-  content: "\f052";
-}
+.fa-eject:before {
+  content: "\f052"; }
+
+/*
 .fa-chevron-left:before {
   content: "\f053";
 }
@@ -950,9 +951,11 @@ th {
 .fa-heart-o:before {
   content: "\f08a";
 }
+*/
 .fa-sign-out:before {
-  content: "\f08b";
-}
+  content: "\f08b"; }
+
+/*
 .fa-linkedin-square:before {
   content: "\f08c";
 }
@@ -2468,21 +2471,35 @@ input[type="submit"] {
     display: table;
     clear: both; }
   .premium #profile {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.35765%;
+    float: right; }
+    .premium #profile:after {
+      content: "";
+      display: table;
+      clear: both; }
+  .premium #premium-container {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 23.23176%;
+    width: 100%;
     padding: 2.35765%; }
-    .premium #profile:last-child {
+    .premium #premium-container:last-child {
       margin-right: 0; }
-  .premium #hoi {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 74.41059%;
-    padding: 2.35765%; }
-    .premium #hoi:last-child {
-      margin-right: 0; }
+  .premium .user-image {
+    border-radius: 150px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 200px;
+    z-index: -10; }
+    .premium .user-image .circular {
+      border-radius: 150px;
+      -webkit-border-radius: 150px;
+      -moz-border-radius: 150px; }
   .premium #card_number {
     background-image: url(/images.png), url(/images.png);
     background-position: 2px -121px,260px -61px;

@@ -23,23 +23,23 @@ Meteor.startup(function() {
             clientId: "210125678365-2mvnbne2vku48el47i1a808b34vk3ttm.apps.googleusercontent.com",
             secret: "fudhxhZGnavEM8lszQkbV-h8"
         });
+        ServiceConfiguration.configurations.insert({
+            service: "facebook",
+            appId: "352016194893721",
+            secret: "02cb35c71f1197ab29335dc1800cfd6f"
+        });
     } else {
         console.log("Deploy on private/localhost");
         ServiceConfiguration.configurations.insert({
             service: "google",
             clientId: "683764162464-17kafe2t7q6ofpama9lrdv9q63u78cp6.apps.googleusercontent.com",
-            secret: "k2yy6BJorow_eD09RQr8Wb7_"
+            secret: "k2yy6BJorow_eD09RQr8Wb7_",
+        });
+        ServiceConfiguration.configurations.insert({
+            service: "facebook",
+            appId: "684759794952691",
+            secret: "e7581a29155cab6716d1a851f050300e"
         });
     }
 
-    // Add Google configuration entry
-    //jmb.meteor.com
-    // ServiceConfiguration.configurations.insert({
-    //   service: "google", clientId: "80599452496-2qof1vreif0kfki7ugcbb74d918smko8.apps.googleusercontent.com", secret: "YUqQ_fvAjBd3oDbLxrazWgXp"
-    // });
-
-    //localhost:4000
-    // ServiceConfiguration.configurations.insert({
-    //   service: "google", clientId: "80599452496-khm9fh2kk4uk7hd0v6048tpj79qjdorg.apps.googleusercontent.com", secret: "VdBhGwxwOJARmuXClP1zAoq2"
-    // });
 });
