@@ -130,6 +130,7 @@ Template.playerSetup.helpers({
     },
     bars: function() {
         return Bars.find({
+            playerId: {$ne: 0}
             //     pos : {
             //         $near : {
             //             $geometry : {
