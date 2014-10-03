@@ -130,7 +130,7 @@ Template.playerSetup.helpers({
     },
     bars: function() {
         return Bars.find({
-            playerId: {$ne: 0}
+            $or: [{playerId: {$ne: 0}}, {userId: Meteor.userId()}]
             //     pos : {
             //         $near : {
             //             $geometry : {
